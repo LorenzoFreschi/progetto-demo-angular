@@ -1,24 +1,10 @@
-
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Lanciare comando `npm run start` per far partire l'applicazione in locale. L'applicazione parità all'indirizzo `http://localhost:4200/`
 
 ## Code scaffolding
+## Back-end
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+L'applicazione utilizza [JSON Server](https://github.com/typicode/json-server) come API di back-end. lanciare comando `npm run server` su un nuovo terminale. Questo comando farà partire le API di back-end all'indirizzo `http://localhost:5000/`
