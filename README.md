@@ -1,3 +1,8 @@
+## Requisiti:
+Node: per installare https://nodejs.org/it
+Angular CLI `npm install -g @angular/cli`
+[JSON Server](https://github.com/typicode/json-server) `npm install -g json-server`
+
 ## Development server
 Lanciare comando `npm run start` per far partire l'applicazione in locale. L'applicazione parità all'indirizzo `http://localhost:4200/`
 
