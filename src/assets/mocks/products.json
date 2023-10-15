@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "name": "Nike Revolution 6 Nera",
+    "description": "Scarpa da running su strada – Uomo",
+    "price": 105.5,
+    "imgUrl": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/88c3280a-1b77-4cf9-957f-d71b91e90393/scarpa-da-running-su-strada-revolution-6-FgfhgR.png"
+  },
+  {
+    "id": "2",
+    "name": "Nike Revolution 6 Bianca",
+    "description": "Scarpa da running su strada – Uomo",
+    "price": 134,
+    "imgUrl": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/acc13136-6d36-44e8-838d-1ff16d84d4ae/scarpa-da-running-su-strada-revolution-6-FgfhgR.png"
+  },
+  {
+    "id": "3",
+    "name": "Air Jordan 1 Low Rossa",
+    "description": "Women's Shoes",
+    "price": 125.90,
+    "imgUrl":"https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8ff9c769-7a52-4bec-aeaf-e1669372fe93/air-jordan-1-low-shoes-2mLM4c.png"
+  },
+  {
+    "id": "4",
+    "name": "Air Jordan 1 Low Verde",
+    "description": "Women's Shoes",
+    "price": 135.45,
+    "imgUrl":"https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/a3f4837b-678c-466c-b4fb-532b306dfb1e/air-jordan-1-low-shoes-2mLM4c.png"
+  },
+  {
+    "id": "5",
+    "name": "Nike Air Force 1 '07 Nera",
+    "description": "Descrizione Prodotto 5",
+    "price": 231.87,
+    "imgUrl":"https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/fa7c385b-0f6d-4bd9-8a0f-6038d8d8a355/air-force-1-07-shoes-VJhk3P.png"
+  }
+]

@@ -1,0 +1,19 @@
+<div  class="flex justify-between w-full bg-white border-b overflow-auto">
+    <div class="w-16 ml-5 lg:ml-10"><a [routerLink]="'/'"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img"  fill="none"><path fill="currentColor" fill-rule="evenodd" d="M21 8.719L7.836 14.303C6.74 14.768 5.818 15 5.075 15c-.836 0-1.445-.295-1.819-.884-.485-.76-.273-1.982.559-3.272.494-.754 1.122-1.446 1.734-2.108-.144.234-1.415 2.349-.025 3.345.275.2.666.298 1.147.298.386 0 .829-.063 1.316-.19L21 8.719z" clip-rule="evenodd"></path></svg></a></div>
+    <div [ngClass]="navbarClose ? 'navbar-closed' : ''" class=" top-0 right-0 ease-in-out transistion-all duration-300 h-screen flex flex-col mt-0 border absolute w-10/12 z-20 bg-white md:w-5/12 lg:relative lg:w-auto lg:h-auto lg:flex-row lg:border-0">
+        
+        <div *ngIf="!navbarClose" class="grid" (click)="toggleMenu()"><i class="m-3 las la-times text-2xl justify-self-end lg:hidden"></i></div>
+        <a *ngIf="!navbarClose" class="ml-10 text-2xl m-3 lg:text-lg lg:self-center lg:mx-4" [routerLink]="'/'">Novità e in evidenza <i  class="ml-2 las la-angle-right text-xl justify-end absolute right-6 lg:hidden"></i></a>
+        <a *ngIf="!navbarClose" class="ml-10 text-2xl m-3 lg:text-lg lg:self-center lg:mx-4" [routerLink]="'/'">Uomo <i class="ml-2 las la-angle-right text-xl justify-end absolute right-6 lg:hidden"></i></a>
+        <a *ngIf="!navbarClose" class="ml-10 text-2xl m-3 lg:text-lg lg:self-center lg:mx-4" [routerLink]="'/'">Donna <i  class="ml-2 las la-angle-right text-xl justify-end absolute right-6 lg:hidden lg:relative"></i></a>
+        <a *ngIf="!navbarClose" class="ml-10 text-2xl m-3 lg:text-lg lg:self-center lg:mx-4" [routerLink]="'/'">Bambini <i class="ml-2 las la-angle-right text-xl justify-end absolute right-6 lg:hidden lg:relative"></i> </a>
+        <a *ngIf="!navbarClose" class="ml-10 text-2xl m-3 lg:text-lg lg:self-center lg:mx-4" [routerLink]="'/'">Outlet<i class="ml-2 las la-angle-right text-xl justify-end absolute right-6 lg:hidden lg:relative"></i> </a>
+        
+    </div>
+
+    
+    <div class="self-center flex" >
+        <a class="mx-6" [routerLink]="'/products/add'"><i class="las la-plus text-3xl text-black" title="aggiungi un prodotto"></i></a>
+        <i class="mr-8 las la-bars text-3xl lg:hidden" (click)="toggleMenu()"></i>
+    </div>
+</div>

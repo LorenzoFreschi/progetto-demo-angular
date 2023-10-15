@@ -1,0 +1,26 @@
+<div class="flex justify-center items-center">
+    <form action="" (ngSubmit)="addProduct()" class="mt-10 w-full mx-10">
+        
+        <div class="lg:w-1/3 mx-auto">
+
+            <h1 class="text-3xl my-6 lg:my-11">Aggiungi Prodotto</h1>
+            <label for="name">Nome prodotto:</label><br>
+            <input class="mb-4 h-11 w-full border-black border-2 rounded-none block" type="text" name="name" [(ngModel)]="name" id="">
+            
+            <label for="description">Descrizione prodotto:</label><br>
+            <input class="mb-4 h-11 w-full border-black border-2 rounded-none block" type="text" name="description" [(ngModel)]="description"  id="">
+            
+            <label for="price">prezzo:</label><br>
+            <input class="mb-4 h-11  w-full border-black border-2 rounded-none block" type="number" name="price" [(ngModel)]="price" id="">
+            
+            <label for="imgUrl">Immagine prodotto:</label><br>
+            <input  class="mb-4 h-11 w-full border-black border-2 rounded-none block" type="text" name="imgUrl" [(ngModel)]="imgUrl">
+        
+            <input type="submit" class="w-full bg-black text-white py-2 px-3 mt-4 cursor-pointer" >
+        </div>
+
+    </form>
+</div>
+
+
+<app-alert [message]="'Prodotto aggiunto correttamente! Stai per essere rediretto sulla pagina principale'" [active]="alertActive"></app-alert>

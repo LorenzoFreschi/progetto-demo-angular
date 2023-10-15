@@ -1,0 +1,9 @@
+
+<h1 class="mx-6 my-10 text-xl lg:text-2xl lg:mx-10 lg:my-13 font-medium">Scarpe da ginnastica ({{products.length}})</h1>
+<div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 mx-1">
+  <product (onDeleteProduct)="deleteProduct(product)" *ngFor="let product of products" [product]="product"></product>
+</div>
+
+<app-alert [message]="'Prodotto eliminato'" [active]="alertActive"></app-alert>
+
+  

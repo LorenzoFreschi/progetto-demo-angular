@@ -1,0 +1,27 @@
+
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-1 my-5 lg:w-1/2 m-1 mx-auto">
+  <a [routerLink]="['/']" class="m-2 self-center"><i class="las la-angle-left text-black text-4xl"></i></a>
+  <form class="relative m-2 col-span-2" *ngIf="product" action="" (ngSubmit)="updateProduct()">
+
+      <div class="mb-2">
+        <div class="shrink-0">
+          <img class="aspect-square cover w-full h-auto " src="{{product.imgUrl}}" alt="">
+        </div>
+        
+      <div class="">
+        <input type="text"  class="mt-3 border border-black w-full block font-medium text-black text-md" name="name" [(ngModel)]="product.name" id="" >
+        <textarea rows="4" cols="50"  class="mt-3 border border-black w-full block font-medium text-gray-300 text-sm" name="description" [(ngModel)]="product.description" id=""></textarea>
+        <input type="text"class="mt-3 border border-black w-full block text-md text-black mt-3" name="price" [(ngModel)]="product.price" id="">
+        <!-- <input type="submit" value="Salva" class="bg-black rounded-full py-1 px-3 text-white w-full lg:w-auto mt-2"> -->
+        <input type="submit" class="w-full bg-black text-white py-2 px-3 mt-4 cursor-pointer" >
+      </div>
+      
+      
+  
+      </div>
+  
+  </form>
+</div>
+
+
+<app-alert [message]="'Prodotto aggiornato correttamente!'" [active]="alertActive"></app-alert>

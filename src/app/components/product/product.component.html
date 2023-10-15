@@ -1,0 +1,25 @@
+
+
+<div class="relative" *ngIf="product">
+
+ <div class="mb-2">
+  <div class="shrink-0">
+    <img class="aspect-square cover w-full h-auto" src="{{product.imgUrl}}" alt="">
+  </div>
+  
+ <div class="mx-2">
+  <div  class="font-medium text-black text-md" >{{product.name}}</div>
+  <div class="text-md text-black mt-3">{{product.price | number: '1.2'}} €</div>
+ 
+  <div class="">
+    <i  title="elimina il prodotto" (click)="onDelete()" class="las la-trash absolute top-1 right-1 text-red-600 text-2xl cursor-pointer m-2"></i>
+    <a [routerLink]="['/product', product.id]"><i title="modifica un prodotto" class="las la-edit absolute top-1 left-1 text-black text-2xl cursor-pointer m-2"></i></a>
+  </div>
+ </div>
+ 
+</div>
+  
+
+  
+
+</div>

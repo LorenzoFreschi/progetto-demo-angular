@@ -1,0 +1,12 @@
+<div *ngIf="active" class="absolute top-0 left-0 w-screen bg-white">
+    <div class="h-screen flex items-center justify-center">
+        <div [ngClass]="active ? 'opacity-100' : 'opacity-0'" class="transition-all ease-in flex justify-center items-center border border-green-500">
+            <i class="las la-check text-6xl m-2 text-green-500"></i>
+            <div class="m-2 text-green-500">{{message}}</div>
+        </div>    
+    </div>
+</div>
+
+
+
+<!-- <button (click)="toggleActive()">btn</button> -->
