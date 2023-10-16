@@ -15,7 +15,9 @@ export class AddProductComponent {
   price?:number;
   imgUrl?: string
 
-  alertActive = false;
+  alertActive:boolean = false;
+  alertError:boolean = false;
+  alertMessage:string = 'Prodotto aggiunto correttamente! Stai per essere rediretto sulla pagina principale'
 
   constructor(
     private api: ProductService,
@@ -41,15 +43,19 @@ export class AddProductComponent {
     };
     
     
-    this.api.addProduct(newProduct).subscribe(() =>{
-
-      this.alertActive = true;
-      setTimeout(() => {
-        this.alertActive = false
-        this.router.navigate(['']);
-      }, 2500);
-
-    });
+    this.api.addProduct(newProduct).subscribe(
+      (p) => console.log(p),
+      (err) => {
+        this.alertError = true;
+        this.alertMessage = "Si è verificato un errore, riprova più tardi"
+      }
+    );
+    this.alertActive = true
+    setTimeout(() => {
+      this.alertActive = false;
+      this.router.navigate(['']);
+    }, 2000);
+    
     
 
     this.name = '';

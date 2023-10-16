@@ -10,7 +10,9 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductDetailComponent {
   product!: Product;
-  alertActive = false;
+  alertActive:boolean = false;
+  alertError:boolean = false;
+  alertMessage:string = 'Prodotto aggionato correttamente!'
 
   constructor(
     private api: ProductService,
@@ -30,13 +32,18 @@ export class ProductDetailComponent {
 
   updateProduct(){
       
-    this.api.updateProduct(this.product).subscribe((p) =>{
-      console.log(p);
-      this.alertActive = true;
-      setTimeout(() => {
-        this.alertActive = false
-      }, 2500);
-    });
+    this.api.updateProduct(this.product).subscribe(
+      (p) => console.log(p),
+      (err) => {
+        this.alertError = true;
+        this.alertMessage = "Si è verificato un errore, riprova più tardi"
+      }
+    );
+    this.alertActive = true
+    setTimeout(() => {
+      this.alertActive = false;
+      //this.router.navigate(['']);
+    }, 2000);
     
   }
 }

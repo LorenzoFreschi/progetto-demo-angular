@@ -7,12 +7,11 @@ import { Component, Input } from '@angular/core';
 })
 export class AlertComponent {
   @Input() message: string = 'azione completata con successo!';
-  @Input() active = false;
+  @Input() active: boolean = false;
+  @Input() error : boolean = false;
 
   public ngOnInit(): void {
 
-    
-    
   }
   
 
