@@ -14,8 +14,4 @@ export class AlertComponent {
 
   }
   
-
-  toggleActive(){
-    this.active = !this.active;
-  }
 }

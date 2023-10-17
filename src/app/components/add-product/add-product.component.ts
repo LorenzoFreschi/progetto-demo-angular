@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Alert } from 'src/app/interfaces/Alert';
 import { Product } from 'src/app/interfaces/Product';
+import { AlertService } from 'src/app/services/alert.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -15,14 +18,18 @@ export class AddProductComponent {
   price?:number;
   imgUrl?: string
 
-  alertActive:boolean = false;
-  alertError:boolean = false;
-  alertMessage:string = 'Prodotto aggiunto correttamente! Stai per essere rediretto sulla pagina principale'
+  alert : Alert = {active: false, error:false, message: 'Prodotto aggiunto correttamente! Stai per essere rediretto sulla pagina principale'}
+  alertSubscription: Subscription;
 
   constructor(
     private api: ProductService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private alertService : AlertService,
+  ) {
+    this.alertSubscription = this.alertService
+      .onAlert()
+      .subscribe((value) => (this.alert = value));
+  }
 
   addProduct(){
     
@@ -42,17 +49,12 @@ export class AddProductComponent {
       imgUrl: this.imgUrl
     };
     
-    
-    this.api.addProduct(newProduct).subscribe(
-      (p) => console.log(p),
-      (err) => {
-        this.alertError = true;
-        this.alertMessage = "Si è verificato un errore, riprova più tardi"
-      }
-    );
-    this.alertActive = true
+    this.alertService.setMessage(this.alert.message);
+    this.api.addProduct(newProduct).subscribe(this.api.productObserver);
+    this.alertService.setStatus(true);
     setTimeout(() => {
-      this.alertActive = false;
+      this.alertService.setStatus(false);
+      this.alertService.resetAlert();
       this.router.navigate(['']);
     }, 2000);
     

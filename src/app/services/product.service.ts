@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Product } from '../interfaces/Product';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AlertService } from './alert.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -13,20 +14,29 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ProductService {
-
+  productObserver = {
+    next: function(value:Product){
+      console.log(value);
+    },
+    error: (err:any) => {
+      console.log(err);
+      this.alertService.setError("Si è verificato un errore, riprova più tardi");
+    }
+  }
   private apiUrl = 'http://localhost:5000/products';
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private alertService : AlertService
   ) { }
 
   public getAllProducts$() {
     return this.http.get<Product[]>(this.apiUrl);
   }
 
-  // public deleteItem(id) {
-    
-  // }
+  public getProductObserver() {
+    return this.productObserver;
+  }
 
   public getProductById$(id: string) {
     const url = `${this.apiUrl}/${id}`;
