@@ -1,6 +1,6 @@
-<div *ngIf="active" class="absolute top-0 left-0 w-screen bg-white">
-    <div class="h-screen flex items-center justify-center">
-        <div [ngClass]="!error ? 'border-green-500' : 'border-red-500'" *ngIf="active" class="transition-all ease-in flex justify-center items-center border">
+<div *ngIf="active" class="absolute top-0 left-0 w-screen">
+    <div class="h-screen flex items-center justify-center" [ngClass]="!active ? 'alert-closed' : ''">
+        <div [ngClass]="{'border-green-500': !error, 'border-red-500': error, 'alert-closed': !active}" *ngIf="active" class="t duration-[2000ms] transition-all bg-white ease-in-out flex justify-center items-center border">
             <i [ngClass]="!error ? 'text-green-500' : 'text-red-500'" class="las la-check text-6xl m-2"></i>
             <div [ngClass]="!error ? 'text-green-500' : 'text-red-500'">{{message}}</div>
         </div>    

@@ -1,0 +1,6 @@
+.alert-closed{
+    width: 0px;
+}
+.t{
+    transition: width 2s;
+}
