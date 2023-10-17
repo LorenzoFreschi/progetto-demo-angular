@@ -1,5 +1,5 @@
 
-<h1 class="mx-6 my-10 text-xl lg:text-2xl lg:mx-10 lg:my-13 font-medium">Scarpe da ginnastica ({{numeroProdotti$ | async}})</h1>
+<h1 class="mx-6 my-10 text-xl lg:text-2xl lg:mx-10 lg:my-13 font-medium">Scarpe da ginnastica ({{numeroProdotti}})</h1>
 <div *ngIf="products$ | async as products; else loading" class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 mx-1">
   <product  *ngFor="let product of products" [product]="product" (onDeleteProduct)="deleteProduct(product)"></product>
 </div>

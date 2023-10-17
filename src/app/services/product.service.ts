@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../interfaces/Product';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, Subscription, filter } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AlertService } from './alert.service';
 
@@ -14,9 +14,10 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ProductService {
+  products$!: Observable<Product[]>;
+  numeroProdottiSubject$ = new Subject<number>();
   productObserver = {
     next: function(value:Product){
-      console.log(value);
     },
     error: (err:any) => {
       console.log(err);
@@ -24,14 +25,17 @@ export class ProductService {
     }
   }
   private apiUrl = 'http://localhost:5000/products';
-
+  
+  
   constructor(
     private http: HttpClient,
     private alertService : AlertService
-  ) { }
+  ) {}
 
-  public getAllProducts$() {
-    return this.http.get<Product[]>(this.apiUrl);
+  public getAllProducts$() : Observable<Product[]> {
+    this.products$ = this.http.get<Product[]>(this.apiUrl);
+    this.updateNumerOfProduct();
+    return this.products$;
   }
 
   public getProductObserver() {
@@ -53,4 +57,11 @@ export class ProductService {
     const url = `${this.apiUrl}/${product.id}`;
     return this.http.put<Product>(url, product, httpOptions);
   }
+  updateNumerOfProduct(): void{
+    this.products$.subscribe(p => this.numeroProdottiSubject$.next(p.length))
+  }
+  onNumberOfProductChange(): Observable<any>{
+    return this.numeroProdottiSubject$.asObservable();
+  }
+  
 }
