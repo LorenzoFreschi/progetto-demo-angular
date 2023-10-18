@@ -49,7 +49,6 @@ export class ProductListComponent {
     this.api.updateNumerOfProduct()
     setTimeout(() => {
       this.alertService.setStatus(false);
-      this.alertService.resetAlert();
       //this.router.navigate(['']);
     }, 2000);
 

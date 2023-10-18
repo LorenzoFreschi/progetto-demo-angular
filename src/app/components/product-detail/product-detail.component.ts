@@ -47,7 +47,6 @@ export class ProductDetailComponent {
     this.alertService.setStatus(true);
     setTimeout(() => {
       this.alertService.setStatus(false);
-      this.alertService.resetAlert();
       //this.router.navigate(['']);
     }, 2000);
     
