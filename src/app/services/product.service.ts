@@ -48,10 +48,14 @@ export class ProductService {
   }
   deleteProduct(product: Product): Observable<Product> {
     const url = `${this.apiUrl}/${product.id}`;
-    return this.http.delete<Product>(url);
+    const p =  this.http.delete<Product>(url);
+    this.updateNumerOfProduct();
+    return p;
   }
   addProduct(product: Product) : Observable<Product>{
-    return this.http.post<Product>(this.apiUrl, product, httpOptions);
+    const p = this.http.post<Product>(this.apiUrl, product, httpOptions);
+    this.updateNumerOfProduct();
+    return p;
   }
   updateProduct(product: Product) : Observable<Product>{
     const url = `${this.apiUrl}/${product.id}`;
